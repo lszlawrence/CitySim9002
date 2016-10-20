@@ -7,10 +7,12 @@ import java.util.Random;
  */
 public class Visitor {
 
+    //Store visitor type in a string array
     public final static String[] visitors = {"Student", "BusinessMan", "Professor", "Blogger"};
 
-    public String vistorGenerator(int typeIndex, int id) {
+    //give the visitor type corresponds to the index
+    public String vistorGenerator(Random rand) {
 
-        return visitors[typeIndex];
+        return visitors[rand.nextInt(4)];
     }
 }

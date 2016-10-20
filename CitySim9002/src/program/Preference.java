@@ -9,8 +9,7 @@ public class Preference {
 
 
 
-
-
+    //All the visitor preference stored by if judgement
     public boolean like(String location, String visitor){
         if(visitor == "Student"){
             if(location == "The Cathedral of Learning"){return false;}

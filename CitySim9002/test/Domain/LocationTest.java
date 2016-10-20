@@ -4,7 +4,10 @@ import org.junit.Test;
 import org.junit.Assert;
 import program.Location;
 
-import static org.mockito.Matchers.anyInt;
+
+import java.util.Random;
+
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -19,8 +22,9 @@ public class LocationTest {
     *To test if location generator can generate the point */
     @Test
     public void ifThePointOneOfFour(){
-
-        Assert.assertEquals("The Point", new Location().locationGenerator(2 ,1));
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(2);
+        Assert.assertEquals("The Point", new Location().locationGenerator(mockRandom));
     }
 
     /*
@@ -28,7 +32,9 @@ public class LocationTest {
  *To test if location generator can generate the cathedral */
     @Test
     public void ifCLOneOfFour(){
-        Assert.assertEquals("The Cathedral of Learning", new Location().locationGenerator(0 ,1));
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(0);
+        Assert.assertEquals("The Cathedral of Learning", new Location().locationGenerator(mockRandom));
     }
 
     /*
@@ -36,7 +42,10 @@ public class LocationTest {
    *To test if location generator can generate downtown */
     @Test
     public void ifDownTownOneOfFour(){
-        Assert.assertEquals("Downtown", new Location().locationGenerator(3 ,1));
+
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(3);
+        Assert.assertEquals("Downtown", new Location().locationGenerator(mockRandom));
     }
 
     /*
@@ -45,6 +54,8 @@ public class LocationTest {
 
     @Test
     public void ifSquirrelHillOneOfFour(){
-        Assert.assertEquals("Squirrel Hill", new Location().locationGenerator(1, 1));
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(1);
+        Assert.assertEquals("Squirrel Hill", new Location().locationGenerator(mockRandom));
     }
 }

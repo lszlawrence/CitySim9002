@@ -4,7 +4,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import program.Visitor;
 
+import java.util.Random;
+
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by lszlawrence on 16/10/5.
@@ -16,8 +20,9 @@ public class VisitorTest {
         *Test if the visitor generator can generate professor. */
     @Test
     public void ifProfessorOneOfFour(){
-
-        Assert.assertEquals("Professor", new Visitor().vistorGenerator(2, 1));
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(2);
+        Assert.assertEquals("Professor", new Visitor().vistorGenerator(mockRandom));
     }
 
 
@@ -26,7 +31,9 @@ public class VisitorTest {
         *Test if the visitor generator can generate BusinessMan. */
     @Test
     public void ifBusinessManOneOfFour(){
-        Assert.assertEquals("BusinessMan",new Visitor().vistorGenerator(1, 1));
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(1);
+        Assert.assertEquals("BusinessMan",new Visitor().vistorGenerator(mockRandom));
     }
 
 
@@ -35,7 +42,9 @@ public class VisitorTest {
         *Test if the visitor generator can generate Student. */
     @Test
     public void ifStudentOneOfFour(){
-        Assert.assertEquals("Student", new Visitor().vistorGenerator(0, 1));
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(0);
+        Assert.assertEquals("Student", new Visitor().vistorGenerator(mockRandom));
     }
 
 
@@ -44,7 +53,9 @@ public class VisitorTest {
         *Test if the visitor generator can generate Blogger. */
     @Test
     public void ifBloggerOneOfFour(){
-        Assert.assertEquals(new Visitor().vistorGenerator(3, 1), "Blogger");
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(any(Integer.class))).thenReturn(3);
+        Assert.assertEquals(new Visitor().vistorGenerator(mockRandom), "Blogger");
     }
 
 }

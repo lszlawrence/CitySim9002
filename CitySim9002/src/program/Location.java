@@ -7,11 +7,13 @@ import java.util.Random;
  */
 public class Location {
 
+    //store different locations in a string array
     public final static String[] locations = {"The Cathedral of Learning", "Squirrel Hill", "The Point","Downtown"};
 
-    public  String locationGenerator (int index, int id){
+    //generate locations corresponds to the index
+    public  String locationGenerator (Random rand){
 
 
-        return locations[index];
+        return locations[rand.nextInt(4)];
     }
 }
