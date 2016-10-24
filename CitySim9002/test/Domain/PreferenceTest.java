@@ -18,11 +18,9 @@ import static org.mockito.Mockito.when;
  */
 public class PreferenceTest {
 
-    /*
-    *The Comparator should return true when visitor like the location.
-    *Test if the comparator return true when visitor like the location */
+   //Test Professor likes The point
     @Test
-    public void ifTheVisitorLikeTheLocationReturnTrue(){
+    public void ProfessorThePoint(){
         Random mockRandom = mock(Random.class);
         Visitor mockVisitor = mock (Visitor.class);
         Location mockLocation = mock (Location.class);
@@ -31,11 +29,42 @@ public class PreferenceTest {
         Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
     }
 
-    /*
-    *The comparator should return false when visitor not like the location.
-    *Test if the comparator return false when visitor not like the location */
+    //Test Professor likes the C:
     @Test
-    public void ifTheVisitorLikeTheLocationReturnFalse(){
+    public void ProfessorTheCL(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Professor");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("The Cathedral of Learning");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test professor likes the squirrel hill
+    @Test
+    public void ProfessorTheSH(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Professor");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Squirrel Hill");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test professor likes downtown
+    @Test
+    public void ProfessorTheDT(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Professor");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Downtown");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test Blogger dislikes downtown
+    @Test
+    public void BloggerTheDT(){
         Random mockRandom = mock(Random.class);
         Visitor mockVisitor = mock (Visitor.class);
         Location mockLocation = mock (Location.class);
@@ -43,4 +72,127 @@ public class PreferenceTest {
         when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Downtown");
         Assert.assertFalse(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
     }
+
+    //Test Blogger dislikes The point
+    @Test
+    public void BloggerThePoint(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Blogger");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("The Point");
+        Assert.assertFalse(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test Blogger dislikes The CL
+    @Test
+    public void BloggerTheCL(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Blogger");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("The Cathedral of Learning");
+        Assert.assertFalse(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test Blogger dislikes Squirrel Hill
+    @Test
+    public void BloggerTheSH(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Blogger");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Squirrel Hill");
+        Assert.assertFalse(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test Student likes the point
+    @Test
+    public void StudentThePoint(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Student");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("The Point");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test student dislikes the CL
+    @Test
+    public void StudentTheCL(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Student");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("The Cathedral of Learning");
+        Assert.assertFalse(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test student likes squirrel hill
+    @Test
+    public void StudentTheSH(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Student");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Squirrel Hill");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test student likes Downtown
+    @Test
+    public void StugentTheDT(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("Student");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Downtown");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test Businessman dislikes the point
+    @Test
+    public void BusinessManThePoint(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("BusinessMan");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("The Point");
+        Assert.assertFalse(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test businessman dislikes CL
+    @Test
+    public void BusinessManTheCL(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("BusinessMan");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("The Cathedral of Learning");
+        Assert.assertFalse(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test businessman likes squirrel hill
+    @Test
+    public void BusinessManTheSH(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("BusinessMan");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Squirrel Hill");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+    //Test businessman likes downtown
+    @Test
+    public void BussinessManTheDT(){
+        Random mockRandom = mock(Random.class);
+        Visitor mockVisitor = mock (Visitor.class);
+        Location mockLocation = mock (Location.class);
+        when(mockVisitor.vistorGenerator(any(Random.class))).thenReturn("BusinessMan");
+        when(mockLocation.locationGenerator(any(Random.class))).thenReturn("Downtown");
+        Assert.assertTrue(new Preference().like(mockLocation.locationGenerator(mockRandom), mockVisitor.vistorGenerator(mockRandom)));
+    }
+
+
 }
